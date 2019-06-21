@@ -15,10 +15,9 @@ def calc_lcd(*args):
             else:
                 c += 1
                 if c == 100:
-                    return "Could not find a common denominator."
+                    return "Reached 100 iterations. Exiting..."
         else:
             return "Could not find a common denominator."
-
 
 if __name__ == "__main__":
     result = calc_lcd(2, 8, 20, 15)
