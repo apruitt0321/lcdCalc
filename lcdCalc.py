@@ -1,6 +1,7 @@
 from collections import Counter
+import sys
 
-def calc_lcd(*args):
+def calc_lcd(args):
     if len(args) < 2:
         return "Not enough arguments. Exiting..."
     else:
@@ -20,6 +21,7 @@ def calc_lcd(*args):
             return "Could not find a common denominator."
 
 if __name__ == "__main__":
-    result = calc_lcd(2, 8, 20, 15)
+    x = [int(i) for i in sys.argv[1:]]
+    result = calc_lcd(x)
     print(result)
 
