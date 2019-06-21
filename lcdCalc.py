@@ -8,7 +8,7 @@ def calc_lcd(args):
         while True:
             y = map(lambda x: True if i % x == 0 else False, args)
             if False not in y:
-                return f"Least common denominator of {args} is {i}"
+                return f"Least common multiple of {args} is {i}"
             i += 1
 
 # Main
