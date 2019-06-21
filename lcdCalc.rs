@@ -17,10 +17,8 @@ fn lcd(nums: &Vec<i32>, x: i32) -> i32 {
 fn main() {
     let a: Vec<String> = env::args().collect();
     let args: Vec<i32> = a[1..].iter()
-        .map(|y| {
-            y.parse::<i32>().unwrap()
-        }).collect();
-    println!("{:?}", args);
+        .map(|y| { y.parse::<i32>().unwrap() })
+        .collect();
     let x = lcd(&args, 1);
     println!("The LCM of {:?} is {}", &args, &x);
 }
