@@ -1,11 +1,8 @@
+# lcdCalc #
+
 Given a series of denominators, calculates their least common multiple.
 
-# Usage #
+Written as a simple practice exercise in python. Re-written in Haskell and Rust for
+further challenge.
 
-`python lcdCalc.py 2 10`
-
-`python lcdCalc.py 5 7`
-
-`python lcdCalc.py 3 7 20`
-
-`python lcdCalc.py 4 13 6 22 23`
+Currently the Rust version will panic if 0 is passed as an argument. 
