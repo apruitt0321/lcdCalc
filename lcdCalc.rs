@@ -13,8 +13,6 @@ fn lcd(nums: &mut Vec<u32>) -> u32 {
         nums.push((x*y) / gcf(x,y));
     }
     nums[0]
-    //let a = nums.iter().fold(1, |acc, x| acc * *x);
-    //a / nums.iter().fold(nums[0], |acc, x| gcf(acc, *x))
 }
 
 fn main() -> io::Result<()>{
