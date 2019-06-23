@@ -1,26 +1,28 @@
 use std::env;
+use std::io;
 
-fn lcd(nums: &Vec<i32>, x: i32) -> i32 {
-    let v: Vec<bool> = nums.iter()
-        .map(|y| {
-            if x % y == 0 { 
-                true
-            } else {
-                false 
-            }
-        }).collect();
-    if v.contains(&false) {
-        lcd(nums, x+1)
-    } else {
-        x
-    }
+fn gcf(x: u32, y: u32) -> u32 {
+    if y == 0 { x } 
+    else { gcf(y, x % y) }
 }
 
-fn main() {
-    let args: Vec<i32> = env::args().skip(1)
+fn lcd(nums: &mut Vec<u32>) -> u32 {
+    while nums.len() > 1 {
+        let x = nums.pop().unwrap();
+        let y = nums.pop().unwrap();
+        nums.push((x*y) / gcf(x,y));
+    }
+    nums[0]
+    //let a = nums.iter().fold(1, |acc, x| acc * *x);
+    //a / nums.iter().fold(nums[0], |acc, x| gcf(acc, *x))
+}
+
+fn main() -> io::Result<()>{
+    let args: Vec<u32> = env::args().skip(1)
         .map(|arg| {
-            arg.parse::<i32>().unwrap()
+            arg.parse::<u32>().unwrap()
         }).collect();
-    let x = lcd(&args, 1);
-    println!("The LCM of {:?} is {}", &args, &x);
+    let y = lcd(&mut args.clone());
+    println!("The LCM of {:?} is {}", &args, y);
+    Ok(())
 }
